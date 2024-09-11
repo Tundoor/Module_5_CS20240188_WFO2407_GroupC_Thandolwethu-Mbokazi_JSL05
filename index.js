@@ -28,13 +28,21 @@ const guardians = {
     // Add preferences for Drax, Rocket, and Groot
 };
 
+
+
 // Function to generate playlist based on preferred genre
 function generatePlaylist(guardians, songs) {
     // Use the map() function to create playlists for each Guardian
     // Your code here
+    function StarLordPlaylist () { 
+        let playlist = songs.filter((songs) => songs.genre === 'Rock')  //filters out songs with rock as a genre
+        let song = playlist.map(({ artist, title}) => ({artist , title})); //makes only the artist and title visible
+        return song
+    }
+    console.log(StarLordPlaylist())
 }
 
 // Call generatePlaylist and display the playlists for each Guardian
-generatePlaylist(guardians, songs);
+console.log(generatePlaylist(guardians, songs));
 
 
