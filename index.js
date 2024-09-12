@@ -34,13 +34,29 @@ const guardians = {
 function generatePlaylist(guardians, songs) {
     // Use the map() function to create playlists for each Guardian
     // Your code here
-    function StarLordPlaylist () { 
-        let playlist = songs.filter((songs) => songs.genre === 'Rock')  //filters out songs with rock as a genre
-        let song = playlist.map(({ artist, title}) => ({artist , title})); //makes only the artist and title visible
-        return song
-    }
-    console.log(StarLordPlaylist())
-}
+    
+ namesOfGuardians = Object.keys(guardians);
+    
+    // Checks favourite genre of each guardian
+    namesOfGuardians.forEach(guardianName => {
+        let eachGenre = guardians[guardianName]; 
+        console.log(guardianName); // Log guardian's name
+        
+        let filteredSongs = songs.filter(newArr => newArr.genre === eachGenre);
+        let mappedSongs = filteredSongs.map(newArr => ({ artist: newArr.artist, title: newArr.title }));
+        // Loop through songs 
+        console.log(`Playlist for ${guardianName} (Genre: ${eachGenre})`)
+      
+        mappedSongs.forEach(song => {
+            console.log(`${song.title} by ${song.artist}`);
+        });
+        console.log(); // Add a blank line for readability between playlists
+    });
+         
+        };
+      
+
+
 
 // Call generatePlaylist and display the playlists for each Guardian
 console.log(generatePlaylist(guardians, songs));
