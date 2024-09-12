@@ -34,19 +34,27 @@ const guardians = {
 function generatePlaylist(guardians, songs) {
     // Use the map() function to create playlists for each Guardian
     // Your code here
-    
- namesOfGuardians = Object.keys(guardians);
+    namesOfGuardians = Object.keys(guardians);
     
     // Checks favourite genre of each guardian
     namesOfGuardians.forEach(guardianName => {
         let eachGenre = guardians[guardianName]; 
         console.log(guardianName); // Log guardian's name
         
+        // Creates playlist for the song
         let filteredSongs = songs.filter(newArr => newArr.genre === eachGenre);
         let mappedSongs = filteredSongs.map(newArr => ({ artist: newArr.artist, title: newArr.title }));
-        // Loop through songs 
-        console.log(`Playlist for ${guardianName} (Genre: ${eachGenre})`)
+         
+        //Creating heading for Div
+        let container = document.getElementById("playlists");
+        let heading = document.createElement('h1');
+        heading.textContent = `Playlist ${guardianName}`;
+        container.appendChild(heading);
       
+       // Creating paragraphs
+
+
+
         mappedSongs.forEach(song => {
             console.log(`${song.title} by ${song.artist}`);
         });
