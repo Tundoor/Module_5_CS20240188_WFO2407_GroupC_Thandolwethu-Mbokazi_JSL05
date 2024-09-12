@@ -32,8 +32,7 @@ const guardians = {
 
 // Function to generate playlist based on preferred genre
 function generatePlaylist(guardians, songs) {
-    // Use the map() function to create playlists for each Guardian
-    // Your code here
+
     namesOfGuardians = Object.keys(guardians);
     
     // Checks favourite genre of each guardian
@@ -46,17 +45,28 @@ function generatePlaylist(guardians, songs) {
         let mappedSongs = filteredSongs.map(newArr => ({ artist: newArr.artist, title: newArr.title }));
          
         //Creating heading for Div
-        let container = document.getElementById("playlists");
+        
+        let mainContainer = document.getElementById("playlists");
+        let container =  document.createElement("div");
+        mainContainer.appendChild(container)
+        // adds CSS styling to playlist Div
+        
+        container.classList.add('playlist')
+        
+        //Created heading for styles
         let heading = document.createElement('h1');
-        heading.textContent = `Playlist ${guardianName}`;
+        heading.textContent = `Playlist ${guardianName}`; 
         container.appendChild(heading);
       
        // Creating paragraphs
-
-
+         let list = document.createElement('ul')
+         list.style.listStyleType = 'none'; //removes dots from UL
+            container.appendChild(list)
 
         mappedSongs.forEach(song => {
-            console.log(`${song.title} by ${song.artist}`);
+            let listItems = document.createElement("li")
+            listItems.textContent = `${song.artist} - ${song.title}`;
+            list.appendChild(listItems);
         });
         console.log(); // Add a blank line for readability between playlists
     });
