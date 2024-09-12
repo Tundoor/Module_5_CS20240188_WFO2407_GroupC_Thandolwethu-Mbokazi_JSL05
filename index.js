@@ -63,9 +63,32 @@ function generatePlaylist(guardians, songs) {
          list.style.listStyleType = 'none'; //removes dots from UL
             container.appendChild(list)
 
+    // Add this for each styling
         mappedSongs.forEach(song => {
+            // Creates list for playlists
             let listItems = document.createElement("li")
-            listItems.textContent = `${song.artist} - ${song.title}`;
+            listItems.classList.add('song')
+            
+            // Styling for songtitle
+            let songTitle = document.createElement("span")
+            songTitle.classList.add('song-title');
+            songTitle.textContent = `${song.title}`;
+
+            //Styling for songlist
+            let songArtist = document.createElement("span");
+            songArtist.classList.add('song-artist');
+            songArtist.textContent = `${song.artist}`;
+    
+            // Append the song title first
+             listItems.appendChild(songTitle);
+    
+            // Append the text 'by'
+            listItems.appendChild(document.createTextNode(' by '));
+            
+           
+            listItems.appendChild(songArtist);
+
+            
             list.appendChild(listItems);
         });
         console.log(); // Add a blank line for readability between playlists
