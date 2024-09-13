@@ -38,7 +38,7 @@ function generatePlaylist(guardians, songs) {
     // Checks favourite genre of each guardian
     namesOfGuardians.forEach(guardianName => {
         let eachGenre = guardians[guardianName]; 
-        console.log(guardianName); // Log guardian's name
+
         
         // Creates playlist for the song
         let filteredSongs = songs.filter(newArr => newArr.genre === eachGenre);
@@ -91,15 +91,13 @@ function generatePlaylist(guardians, songs) {
             
             list.appendChild(listItems);
         });
-        console.log(); // Add a blank line for readability between playlists
+       
     });
          
         };
       
 
-
-
 // Call generatePlaylist and display the playlists for each Guardian
-console.log(generatePlaylist(guardians, songs));
+generatePlaylist(guardians, songs);
 
 
